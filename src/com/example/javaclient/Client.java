@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.List;
 import java.util.Scanner;
 
+import android.app.Activity;
+import android.content.Intent;
+
+import com.example.rockpaperscissorslizardspock.MainActivity;
 import com.example.util.Message;
 
 public class Client implements Runnable {
