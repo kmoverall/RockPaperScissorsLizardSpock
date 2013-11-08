@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.webkit.JsPromptResult;
@@ -31,8 +32,19 @@ public class Game extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
 		webView=(WebView) findViewById(R.id.webView1);
+		Intent intent = getIntent();
+		
+		String port = "6666";
+		
+		port = intent.getStringExtra("port");
+		int portNum = Integer.parseInt(port);
+		String host = "10.20.63.3";
+		host = intent.getStringExtra("host");
+		String pName = "Mark";
+		pName= intent.getStringExtra("player");
+		
 		try {
-			client = new HTMLClient(6666,"10.20.63.3","Mark",Game.this);
+			client = new HTMLClient(portNum,host,pName,Game.this);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

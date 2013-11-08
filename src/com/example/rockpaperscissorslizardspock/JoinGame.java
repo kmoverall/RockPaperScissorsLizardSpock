@@ -1,9 +1,11 @@
 package com.example.rockpaperscissorslizardspock;
 
 import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.provider.ContactsContract;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleCursorAdapter;
@@ -18,7 +22,11 @@ import android.widget.SimpleCursorAdapter;
 public class JoinGame extends ListActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    // This is the Adapter being used to display the list's data
+	private final Activity activity = this;
+	private Button mJoin;
+	private EditText mHostName;
+	private EditText mPortNumber;
+	// This is the Adapter being used to display the list's data
     SimpleCursorAdapter mAdapter;
 
     // These are the Contacts rows that we will retrieve
@@ -59,6 +67,33 @@ public class JoinGame extends ListActivity
         // Prepare the loader.  Either re-connect with an existing one,
         // or start a new one.
         getLoaderManager().initLoader(0, null, this);
+    	mHostName=(EditText)findViewById(R.id.editTextHostName);
+    	mPortNumber=(EditText)findViewById(R.id.editTextPortNumber);
+    	
+    	Button mJoin;
+    	mJoin = (Button)findViewById(R.id.button1);
+    	mJoin.setOnClickListener(new View.OnClickListener(){
+    		@Override
+    		public void onClick(View v) {
+    			// TODO Auto-generated method stub
+    			Intent i = getIntent();
+    			Intent intent = new Intent(activity,Game.class);
+    		    
+    		    String player = i.getStringExtra("name");
+    		    String host = mHostName.getText().toString();
+    			String port = mPortNumber.getText().toString();
+    			
+    		    intent.putExtra("player",player);
+    		    intent.putExtra("host", host);
+    		    intent.putExtra("port", port);
+    		    startActivity(intent);
+
+    			
+    		    
+    		}
+    	});
+    
+    
     }
 
     // Called when a new Loader needs to be created
@@ -88,4 +123,7 @@ public class JoinGame extends ListActivity
     public void onListItemClick(ListView l, View v, int position, long id) {
         // Do something when a list item is clicked
     }
+    
+    
+    
 }

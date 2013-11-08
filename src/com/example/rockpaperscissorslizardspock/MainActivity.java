@@ -1,5 +1,9 @@
 package com.example.rockpaperscissorslizardspock;
 
+<<<<<<< HEAD
+=======
+import android.R.string;
+>>>>>>> 990327cb707df087fdda709bd333e1ab78c07d80
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,15 +11,21 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 990327cb707df087fdda709bd333e1ab78c07d80
 
 public class MainActivity extends Activity {
 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+<<<<<<< HEAD
 
 	    Button joinButton = (Button)findViewById(R.id.button2);
 	    
@@ -32,6 +42,13 @@ public class MainActivity extends Activity {
 	      }
 
 	    });
+=======
+	
+	
+
+	
+	
+>>>>>>> 990327cb707df087fdda709bd333e1ab78c07d80
 	}
 
 	@Override
@@ -40,5 +57,5 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
 }
