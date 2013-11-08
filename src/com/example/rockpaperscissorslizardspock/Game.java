@@ -3,6 +3,7 @@ package com.example.rockpaperscissorslizardspock;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Button;
 
 import com.example.javaclient.HTMLClient;
 
+@SuppressLint("SetJavaScriptEnabled")
 public class Game extends Activity {
 	WebView webView;
 	HTMLClient client;
@@ -35,9 +37,12 @@ public class Game extends Activity {
 		webView=(WebView) findViewById(R.id.webView1);
 		Intent intent = getIntent();
 		
-		Button quitButton;
-		quitButton = new Button(this);
-		quitButton.setOnClickListener(new View.OnClickListener(){
+		final Button valid;
+		
+		
+		
+		valid = new Button(this);
+		valid.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -67,7 +72,7 @@ public class Game extends Activity {
 		// add "client" var
 		webView.addJavascriptInterface(client, "client");
 		//add quitbutton to js interface
-		webView.addJavascriptInterface(quitButton, "quitButton");
+		webView.addJavascriptInterface(valid, "valid");
 		
 		// allow Web view to view pages
 		webView.setWebViewClient(new WebViewClient(){

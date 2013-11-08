@@ -1,6 +1,6 @@
 package com.example.rockpaperscissorslizardspock;
 
-import android.R.string;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,16 +18,14 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	
-	    Button joinButton = (Button)findViewById(R.id.button2);
-	    
-	    joinButton.setOnClickListener(new View.OnClickListener() {
+	    Button joinGame = (Button)findViewById(R.id.button2);
+	    joinGame.setOnClickListener(new View.OnClickListener() {
 
 	      @Override
 	      public void onClick(View view) {
 	        Intent intent = new Intent(MainActivity.this, JoinGame.class);
-	        
-	        String name = ((EditText)findViewById(R.id.editTextHostName)).getText().toString();
-	        
+	        EditText editText=(EditText)findViewById(R.id.editPersonName);
+	        String name = editText.getText().toString();
 	        intent.putExtra("name", name);
 	        startActivity(intent);
 	      }
@@ -37,7 +35,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}

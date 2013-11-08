@@ -26,8 +26,9 @@ public final class R {
     public static final class id {
         public static final int GridLayout1=0x7f080007;
         public static final int LinearLayout1=0x7f080001;
-        public static final int action_settings=0x7f080009;
+        public static final int action_settings=0x7f08000a;
         public static final int button2=0x7f080008;
+        public static final int editPersonName=0x7f080009;
         public static final int editTextHostName=0x7f080003;
         public static final int editTextPortNumber=0x7f080005;
         public static final int joinButton=0x7f080006;

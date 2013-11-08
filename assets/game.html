@@ -31,8 +31,13 @@ function handleOnChange(){
 	}
 }
 function quitGame(){
-	quitButton.quitGame();
-}
+    valid.performClick();
+    document.getElementById("quit").value = "quitGame";
+	}
+</script>
+
+
+
 
 </script>
 </head>
@@ -49,6 +54,12 @@ This is the game.html.
 	<option value="scissors">Scissors</option>
 	<option value="lizard">Lizard</option>
 	<option value="spock">Spock</option>
-	<button onclick="quitGame()">Quit</button>
+</select>
+
+<button type="button" id="quit" onclick="quitGame">Quit</button>
+
+
+
 </body>
+
 </html>
