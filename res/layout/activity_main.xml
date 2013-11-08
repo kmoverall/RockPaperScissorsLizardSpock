@@ -29,13 +29,6 @@
     </EditText>
 
     <Button
-        android:id="@+id/button1"
-        android:layout_column="0"
-        android:layout_gravity="center"
-        android:layout_row="1"
-        android:text="New Game" />
-
-    <Button
         android:id="@+id/button2"
         android:layout_column="0"
         android:layout_gravity="center_horizontal|bottom"
