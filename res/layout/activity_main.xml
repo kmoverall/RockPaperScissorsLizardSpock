@@ -25,7 +25,7 @@
         android:text="Join" />
 
     <EditText
-        android:id="@+id/editTextHostName"
+        android:id="@+id/editPersonName"
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_gravity="center"
