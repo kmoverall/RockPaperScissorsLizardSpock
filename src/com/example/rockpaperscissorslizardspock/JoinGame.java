@@ -10,6 +10,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,6 @@ import android.widget.SimpleCursorAdapter;
 public class JoinGame extends ListActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
-	private Button mJoin;
 	private EditText mHostName;
 	private EditText mPortNumber;
 	// This is the Adapter being used to display the list's data
@@ -69,17 +69,23 @@ public class JoinGame extends ListActivity
         */
     	mHostName=(EditText)findViewById(R.id.editTextHostName);
     	mPortNumber=(EditText)findViewById(R.id.editTextPortNumber);
+    	//String testhn = mHostName.getText().toString();
+    	//String testpn = mPortNumber.getText().toString();
     	
     	Button mJoin;
+    	
     	mJoin = (Button)findViewById(R.id.joinButton);
+    	
     	mJoin.setOnClickListener(new View.OnClickListener(){
     		@Override
     		public void onClick(View v) {
     			// TODO Auto-generated method stub
     			Intent i = getIntent();
+    			
     			Intent intent = new Intent(JoinGame.this,Game.class);
     		    
     		    String player = i.getStringExtra("name");
+    		    
     		    String host = mHostName.getText().toString();
     			String port = mPortNumber.getText().toString();
     			
@@ -91,6 +97,7 @@ public class JoinGame extends ListActivity
     			
     		    
     		}
+    		
     	});
     
     
