@@ -22,7 +22,6 @@ import android.widget.SimpleCursorAdapter;
 public class JoinGame extends ListActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
-	private final Activity activity = this;
 	private Button mJoin;
 	private EditText mHostName;
 	private EditText mPortNumber;
@@ -41,7 +40,7 @@ public class JoinGame extends ListActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        /*
         // Create a progress bar to display while the list loads
         ProgressBar progressBar = new ProgressBar(this);
         progressBar.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
@@ -67,17 +66,18 @@ public class JoinGame extends ListActivity
         // Prepare the loader.  Either re-connect with an existing one,
         // or start a new one.
         getLoaderManager().initLoader(0, null, this);
+        */
     	mHostName=(EditText)findViewById(R.id.editTextHostName);
     	mPortNumber=(EditText)findViewById(R.id.editTextPortNumber);
     	
     	Button mJoin;
-    	mJoin = (Button)findViewById(R.id.button1);
+    	mJoin = (Button)findViewById(R.id.joinButton);
     	mJoin.setOnClickListener(new View.OnClickListener(){
     		@Override
     		public void onClick(View v) {
     			// TODO Auto-generated method stub
     			Intent i = getIntent();
-    			Intent intent = new Intent(activity,Game.class);
+    			Intent intent = new Intent(JoinGame.this,Game.class);
     		    
     		    String player = i.getStringExtra("name");
     		    String host = mHostName.getText().toString();

@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/joinButton"
         android:layout_width="99dp"
         android:layout_height="wrap_content"
         android:text="Join" />
