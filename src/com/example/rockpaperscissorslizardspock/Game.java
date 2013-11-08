@@ -7,10 +7,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.webkit.JsPromptResult;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 import com.example.javaclient.HTMLClient;
 
@@ -34,8 +35,19 @@ public class Game extends Activity {
 		webView=(WebView) findViewById(R.id.webView1);
 		Intent intent = getIntent();
 		
-		String port = "6666";
+		Button quitButton;
+		quitButton = new Button(this);
+		quitButton.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+					Intent intent = new Intent(Game.this,MainActivity.class);
+					startActivity(intent);
+			}
+		});
 		
+		
+		String port = "6666";
 		port = intent.getStringExtra("port");
 		int portNum = Integer.parseInt(port);
 		String host = "10.20.63.3";
@@ -54,6 +66,9 @@ public class Game extends Activity {
 		}
 		// add "client" var
 		webView.addJavascriptInterface(client, "client");
+		//add quitbutton to js interface
+		webView.addJavascriptInterface(quitButton, "quitButton");
+		
 		// allow Web view to view pages
 		webView.setWebViewClient(new WebViewClient(){
 			@Override
